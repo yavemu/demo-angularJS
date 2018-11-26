@@ -1,12 +1,26 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-            <h1>Usuarios</h1>
-            <span>Total usuarios: {{$ctrl.users.length}}</span>
+        <h1>Usuarios</h1>
+        <div class="col-xs-12 col-md-3 well">
+            <h2>Filtrar</h2>
+            <p><b>Nombre:</b> <br> <input ng-model="$ctrl.query.name" /></p>
+            <p><b>Username:</b> <br> <input ng-model="$ctrl.query.username" /></p>
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <p>
+                <b>Ordenar por</b>
+                <select ng-model="$ctrl.orderProp">
+                    <option value="name">Nombre ASC</option>
+                    <option value="-name">Nombre DESC</option>
+                    <option value="username">Username ASC</option>
+                    <option value="-username">Username DESC</option>
+                </select>
+                <span>Total usuarios: {{$ctrl.users.length}}</span>
+            </p>
             <hr>
-            <div class="well" ng-repeat="user in $ctrl.users">
-                <p>{{user.name}}</p>
-                <p>{{user.username}}</p>
+            <div class="well" ng-repeat="user in $ctrl.users | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+                <p><b>Usuario: </b>{{user.name}}</p>
+                <p><b>Username: </b>{{user.username}}</p>
             </div>
         </div>
     </div>
