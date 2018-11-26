@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Usuarios</h1>
+            <span>Total usuarios: {{$ctrl.users.length}}</span>
+            <hr>
+            <div class="well" ng-repeat="user in $ctrl.users">
+                <p>{{user.name}}</p>
+                <p>{{user.username}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
