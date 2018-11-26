@@ -1,13 +1,14 @@
 <div class="container-fluid">
     <div class="row">
         <h1>Usuarios</h1>
+        <hr>
         <div class="col-xs-12 col-md-3 well">
             <h2>Filtrar</h2>
-            <p><b>Nombre:</b> <br> <input ng-model="$ctrl.query.name" /></p>
-            <p><b>Username:</b> <br> <input ng-model="$ctrl.query.username" /></p>
+            <p><b><span class="glyphicon glyphicon-user"></span>Nombre:</b> <br> <input ng-model="$ctrl.query.name" /></p>
+            <p><b><span class="glyphicon glyphicon-star-empty"></span>Username:</b> <br> <input ng-model="$ctrl.query.username" /></p>
         </div>
         <div class="col-xs-12 col-md-9">
-            <p>
+            <p class="text-right">
                 <b>Ordenar por</b>
                 <select ng-model="$ctrl.orderProp">
                     <option value="name">Nombre ASC</option>
@@ -19,8 +20,8 @@
             </p>
             <hr>
             <div class="well" ng-repeat="user in $ctrl.users | filter:$ctrl.query | orderBy:$ctrl.orderProp">
-                <p><b>Usuario: </b>{{user.name}}</p>
-                <p><b>Username: </b>{{user.username}}</p>
+                <p><b> <span class="glyphicon glyphicon-user"></span> Nombre: </b>{{user.name}}</p>
+                <p><b> <span class="glyphicon glyphicon-star-empty"></span> Username: </b>{{user.username}}</p>
             </div>
         </div>
     </div>
