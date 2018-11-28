@@ -9,14 +9,18 @@
     <link rel="stylesheet" href="main.css" />
 
     <script src="/lib/angular/angular.js"></script>
+        <script src="lib/angular-route/angular-route.js"></script>
         <script src="app.module.js"></script>
+        <script src="app.config.js"></script>
         <script src="user-list/user-list.module.js"></script>
         <script src="user-list/user-list.component.js"></script>
+        <script src="user-detail/user-detail.module.js"></script>
+        <script src="user-detail/user-detail.component.js"></script>
 </head>
 <body>
     <div class="container">
 
-        <user-list></user-list>
+        <div ng-view></div>
 
         
     </div>

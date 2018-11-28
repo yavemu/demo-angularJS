@@ -31,7 +31,7 @@
             <div class="row" ng-repeat="user in $ctrl.users | filter:$ctrl.query | orderBy:$ctrl.orderProp">
                 <div class="col-xs-4 text-center">
                     <br><br>
-                    <a class="nounderline" href="#">
+                    <a class="nounderline" href="#!/user/{{$index}}/{{$ctrl.seed}}">
                         <img class="img-circle" ng-src="{{user.picture.medium}}" alt="{{user.name.first}}" />
                         <br>
                         <b>{{user.login.username}}</b>

@@ -18,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.7.5",
+    "angular-route": "1.7.x",
     "bootstrap": "3.3.x",
     "cpx": "^1.5.0",
     "http-server": "^0.11.1"
