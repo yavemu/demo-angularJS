@@ -6,7 +6,7 @@ angular.
                 when('/users', {
                     template: '<user-list></user-list>'
                 }).
-                when('/user/:userId/:seed', {
+                when('/user/:username/:seed', {
                     template: '<user-detail></user-detail>'
                 }).
                 otherwise('/users');
