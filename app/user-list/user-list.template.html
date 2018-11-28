@@ -1,27 +1,60 @@
 <div class="container-fluid">
     <div class="row">
-        <h1>Usuarios</h1>
-        <hr>
-        <div class="col-xs-12 col-md-3 well">
-            <h2>Filtrar</h2>
-            <p><b><span class="glyphicon glyphicon-user"></span>Nombre:</b> <br> <input ng-model="$ctrl.query.name" /></p>
-            <p><b><span class="glyphicon glyphicon-star-empty"></span>Username:</b> <br> <input ng-model="$ctrl.query.username" /></p>
+        <div class="col-xs-12 well">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="namefirst">Nombre</label>
+                    <input ng-model="$ctrl.query.name.first" name="namefirst">
+                </div>
+                <div class="form-group">
+                    <label for="namelast">Apellidos</label>
+                    <input ng-model="$ctrl.query.name.last" name="namelast">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input ng-model="$ctrl.query.login.username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="order">Ordenar</label>
+                    <select ng-model="$ctrl.orderProp" class="form-control" name="order">
+                        <option value="name.first">Nombre ASC</option>
+                        <option value="-name.first">Nombre DESC</option>
+                        <option value="login.username">Username ASC</option>
+                        <option value="-login.username">Username DESC</option>
+                    </select>
+                </div>
+                
+            </form>
         </div>
-        <div class="col-xs-12 col-md-9">
-            <p class="text-right">
-                <b>Ordenar por</b>
-                <select ng-model="$ctrl.orderProp">
-                    <option value="name">Nombre ASC</option>
-                    <option value="-name">Nombre DESC</option>
-                    <option value="username">Username ASC</option>
-                    <option value="-username">Username DESC</option>
-                </select>
-                <span>Total usuarios: {{$ctrl.users.length}}</span>
-            </p>
-            <hr>
-            <div class="well" ng-repeat="user in $ctrl.users | filter:$ctrl.query | orderBy:$ctrl.orderProp">
-                <p><b> <span class="glyphicon glyphicon-user"></span> Nombre: </b>{{user.name}}</p>
-                <p><b> <span class="glyphicon glyphicon-star-empty"></span> Username: </b>{{user.username}}</p>
+    
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <div class="row" ng-repeat="user in $ctrl.users | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+                <div class="col-xs-4 text-center">
+                    <br><br>
+                    <a class="nounderline" href="#">
+                        <img class="img-circle" ng-src="{{user.picture.medium}}" alt="{{user.name.first}}" />
+                        <br>
+                        <b>{{user.login.username}}</b>
+                    </a>
+                </div>
+                <div class="col-xs-8 text-left well">
+                    <p>
+                        <b> <span class="glyphicon glyphicon-user"></span> Nombre: </b>
+                        <span class="text-capitalize">{{user.name.first}}</span>
+                    </p>
+                    <p>
+                        <b> <span class="glyphicon glyphicon-user"></span> Apellidos: </b>
+                        <span class="text-capitalize">{{user.name.last}}</span>
+                    </p>
+                    <p>
+                        <b> <span class="glyphicon glyphicon-time"></span> Edad: </b>
+                        <span>{{user.dob.age}}</span>
+                    </p>
+                    <p>
+                        <b> <span class="glyphicon glyphicon-envelope"></span> Email: </b>
+                        <span>{{user.email}}</span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
